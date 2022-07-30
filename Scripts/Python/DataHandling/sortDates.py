@@ -34,3 +34,4 @@ if __name__ == "__main__":
         if x == "":
             c.Date.remove('')
     print(len(c.Date))
+    c.writeCSV("t.csv")
