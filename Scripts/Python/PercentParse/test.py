@@ -34,6 +34,20 @@ if __name__ == "__main__":
 
     for i in range(len(c.Bprice)):
         if i != len(c.Bprice):
-            c.BtcPer.append(percInc(c.Bprice[i+1],c.Bprice[i]))
-    c.printSmall()
+            try: 
+                c.BtcPer.append(percInc(c.Bprice[i+1],c.Bprice[i]))
+            except IndexError: 
+                print(f'index at {i}')
+
+    for i in range(len(c.Open)):
+        if i != len(c.Open):
+            try: 
+                c.NasPer.append(percInc(c.Open[i+1],c.Open[i]))
+            except IndexError: 
+                print(f'index at {i}')
+
+
+    print(c.NasPer)
+    c.printHeaders()
+    c.writeCSV("percent.csv")
     mean(c.Bprice)
