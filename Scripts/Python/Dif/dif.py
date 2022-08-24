@@ -17,17 +17,18 @@ def dif(a,b):
     return a - b
 
 if __name__ == "__main__":
-    c.importCSV("../PercentParse/percent.csv")
-    c.addCol("dif")
-    c.addCol("netDif")
+   # c.importCSV("../PercentParse/percent.csv")
+    c.importCSV("dif.csv")
+    c.addCol("ddif")
+    c.addCol("netdDif")
 
     for i in range(len(c.BtcPer)):
         d = dif(c.BtcPer[i],c.NasPer[i])
         nd = netDif(c.BtcPer[i],c.NasPer[i])
-        c.dif.append(d)
-        c.netDif.append(nd)
+        c.ddif.append(d)
+        c.netdDif.append(nd)
 
-    c.writeCSV("dif.csv")
+    c.writeCSV("ddif.csv")
     df = 0.0
     ndf = 0.0
     for v in c.dif:
@@ -36,5 +37,5 @@ if __name__ == "__main__":
     for v in c.netDif:
         ndf += v
 
-    print(f'Avg Dif = {df/len(c.dif)}')
-    print(f'Avg Net Dif = {ndf/len(c.netDif)}')
+    print(f'Avg Dif = {df/len(c.ddif)}')
+    print(f'Avg Net Dif = {ndf/len(c.netdDif)}')
